@@ -159,3 +159,21 @@ This project has been strongly influenced and supported by other amazing project
 [LlamaCpp](https://github.com/ggerganov/llama.cpp),
 [Chroma](https://www.trychroma.com/)
 and [SentenceTransformers](https://www.sbert.net/).
+
+
+## Steps for Installation in Ubuntu 22.04
+
+- Download Anaconda (https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html). It might require email to download
+- `bash Anaconda3-2024.02-1-Linux-x86_64.sh`
+- `conda create -n privategpt python=3.11`
+- `brew install poetry`
+- `conda activate privategpt`
+- Login to HuggingFace account (web) or create account. Copy the `Access Token` from Settings (https://huggingface.co/docs/huggingface_hub/quick-start)
+- Install huggingface: `pip install --upgrade huggingface_hub`
+- `huggingface-cli login` paste here the Access Token
+- `poetry install --with ui,local`
+- `poetry run python scripts/setup`
+- `poetry install --extras "ui vector-stores-qdrant llms-ollama llms-llama-cpp embeddings-huggingface embeddings-ollama"`
+- `CMAKE_ARGS="DLLAMA_METAL=on" pip install --force-reinstall no-cache-dir llama-cpp-python`
+  - Used `poetry run pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir` because of errors
+- `PGPT_PROFILES=local make run`
