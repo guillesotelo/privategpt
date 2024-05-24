@@ -27,9 +27,9 @@ logger = logging.getLogger(__name__)
 
 THIS_DIRECTORY_RELATIVE = Path(__file__).parent.relative_to(PROJECT_ROOT_PATH)
 # Should be "private_gpt/ui/avatar-bot.ico"
-AVATAR_BOT = THIS_DIRECTORY_RELATIVE / "avatar-bot.ico"
+AVATAR_VOLVO = THIS_DIRECTORY_RELATIVE / "avatar-volvo.png"
 
-UI_TAB_TITLE = "My Private GPT"
+UI_TAB_TITLE = "HP AI Chat"
 
 SOURCES_SEPARATOR = "\n\n Sources: \n"
 
@@ -310,14 +310,16 @@ class PrivateGptUi:
             "justify-content: center;"
             "align-items: center;"
             "}"
-            ".logo img { height: 25% }"
+            ".logo { display: flex; flex-direction: row; align-items: center; }"
+            ".logo h1 { margin: 0; color: white; }"
+            ".logo img { height: 60% }"
             ".contain { display: flex !important; flex-direction: column !important; }"
             "#component-0, #component-3, #component-10, #component-8  { height: 100% !important; }"
             "#chatbot { flex-grow: 1 !important; overflow: auto !important;}"
             "#col { height: calc(100vh - 112px - 16px) !important; }",
         ) as blocks:
             with gr.Row():
-                gr.HTML(f"<div class='logo'/><img src={logo_svg} alt=HP AI CHAT></div")
+                gr.HTML(f"<div class='logo'/><img src={logo_svg} alt=HP AI Chat><h1>HP AI Chat</h1></div")
 
             with gr.Row(equal_height=False):
                 with gr.Column(scale=3):
@@ -471,7 +473,7 @@ class PrivateGptUi:
                             render=False,
                             avatar_images=(
                                 None,
-                                AVATAR_BOT,
+                                AVATAR_VOLVO,
                             ),
                         ),
                         additional_inputs=[mode, upload_button, system_prompt_input],

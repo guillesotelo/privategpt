@@ -177,3 +177,9 @@ and [SentenceTransformers](https://www.sbert.net/).
 - `CMAKE_ARGS="DLLAMA_METAL=on" pip install --force-reinstall no-cache-dir llama-cpp-python`
   - Used `poetry run pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir` because of errors
 - `PGPT_PROFILES=local make run`
+
+### Nvidia driver installation on Ubuntu 22.04
+
+Go to the following link and follow the instructions:
+
+[Installing Nvidia drivers on a GPU-enabled (Nvidia Tesla) EC2 instance (G4DN)](https://discourse.ubuntu.com/t/installing-nvidia-drivers-on-a-gpu-enabled-nvidia-tesla-ec2-instance-g4dn/40610)

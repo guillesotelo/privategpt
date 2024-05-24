@@ -4,7 +4,7 @@ def concatenate_md_files(src_dir, dst_file):
     with open(dst_file, 'w', encoding='utf-8') as outfile:
         for root, _, files in os.walk(src_dir):
             for file in files:
-                if file.endswith('.md'):
+                if file.endswith('.md') or file.endswith('.txt'):
                     src_file = os.path.join(root, file)
                     with open(src_file, 'r', encoding='utf-8') as infile:
                         outfile.write(infile.read())
