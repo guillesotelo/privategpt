@@ -178,6 +178,13 @@ and [SentenceTransformers](https://www.sbert.net/).
   - Used `poetry run pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir` because of errors
 - `PGPT_PROFILES=local make run`
 
+### Run
+
+Standing on the root folder just run:
+
+- `conda activate privategpt`
+- `PGPT_PROFILES=local make run`
+
 ### Nvidia driver installation on Ubuntu 22.04
 
 Go to the following link and follow the instructions:
