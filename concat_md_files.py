@@ -39,7 +39,7 @@ def concatenate_md_files(src_dir, dst_file):
 
 if __name__ == "__main__":
     source_directory = input("Enter the source directory path: ")
-    destination_file = input("Enter the destination file path (including file name): ")
+    destination_file = input("Enter the destination file path (including file extension): ")
 
     concatenate_md_files(source_directory, destination_file)
-    print(f"All .md files have been concatenated into {destination_file}.")
+    print(f"All text files have been concatenated into {destination_file}.")
