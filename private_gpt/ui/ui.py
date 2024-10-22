@@ -52,7 +52,7 @@ class Source(BaseModel):
             doc_metadata = chunk.document.doc_metadata
 
             file_name = doc_metadata.get("file_name", "-") if doc_metadata else "-"
-            page_label = doc_metadata.get("page_label", "-") if doc_metadata else "-"
+            page_label = doc_metadata.get("page_label", "") if doc_metadata else ""
 
             source = Source(file=file_name, page=page_label, text=chunk.text)
             curated_sources.append(source)
@@ -104,9 +104,12 @@ class PrivateGptUi:
                 used_files = set()
                 for index, source in enumerate(cur_sources, start=1):
                     if f"{source.file}-{source.page}" not in used_files:
+                        page = f"({source.page})"
+                        if not source.page:
+                            page = '(main page)'
                         sources_text = (
                             sources_text
-                            + f"{index}. {source.file} (page {source.page}) \n\n"
+                            + f"{index}. {source.file} {page} \n\n"
                         )
                         used_files.add(f"{source.file}-{source.page}")
                 full_response += sources_text
@@ -311,7 +314,7 @@ class PrivateGptUi:
             "align-items: center;"
             "}"
             ".logo { display: flex; flex-direction: row; align-items: center; }"
-            ".logo h1 { margin: 0; color: white; }"
+            ".logo h1 { margin: 0 1rem; color: white; }"
             ".logo img { height: 60% }"
             ".contain { display: flex !important; flex-direction: column !important; }"
             "#component-0, #component-3, #component-10, #component-8  { height: 100% !important; }"
