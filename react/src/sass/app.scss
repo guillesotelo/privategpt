@@ -1,0 +1,84 @@
+@use '../components/chat.scss';
+@use '../components/ui/dropdown.scss';
+@use '../components/ui/button.scss';
+
+html,
+body {
+    margin: 0;
+}
+
+* {
+    background: #14181E;
+    color: lightgray;
+    font-family: ui-sans-serif, -apple-system, system-ui, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol;
+}
+
+:root {
+    // Light Mode
+    --main-bg-color: #fff;
+    --secondary-bg-color: #202A44;
+    --terceary-bg-color: #7089AC;
+    --main-color: #000;
+
+    // Dark Mode
+    --main-bg-color-dark: #14181E;
+    --secondary-bg-color-dark: #2F2F2F;
+    --terceary-bg-color-dark: #0c0c0c;
+    --main-color-dark: #D3D3D3;
+}
+
+code {
+    white-space: pre-wrap !important;
+    font-family: monospace;
+    border-radius: 1rem;
+    width: 100% !important;
+    overflow-wrap: anywhere;
+    font-style: italic;
+    background: #0c0c0c !important;
+    margin: 1rem 0;
+}
+
+code * {
+    background: #0c0c0c !important;
+}
+
+pre code {
+    background: #0c0c0c !important;
+    padding: 1.5rem;
+    display: block;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    min-width: 100px;
+    font-style: normal;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    text-shadow: none;
+    overflow: unset !important;
+    color: lightgray;
+    max-width: -webkit-fill-available;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: .4rem;
+    // height: .4rem;
+    // border-radius: .3rem;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #424242;
+    // border-radius: .2rem;
+}
