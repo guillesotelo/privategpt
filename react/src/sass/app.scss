@@ -1,6 +1,7 @@
 @use '../components/chat.scss';
 @use '../components/ui/dropdown.scss';
 @use '../components/ui/button.scss';
+@use '../components/ui/switch.scss';
 
 html,
 body {
@@ -8,8 +9,8 @@ body {
 }
 
 * {
-    background: #14181E;
-    color: lightgray;
+    // background: #14181E;
+    // color: lightgray;
     font-family: ui-sans-serif, -apple-system, system-ui, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol;
 }
 

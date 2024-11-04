@@ -15,6 +15,25 @@
             color: lightgray;
             border: 1px solid lightgray;
         }
+
+        &--dark {
+            border: none;
+            outline: none;
+            transition: .1s;
+            cursor: pointer;
+            background: black;
+            color: lightgray;
+            border-radius: .5rem;
+            padding: .7rem .5rem;
+            border: 1px solid transparent;
+    
+            &:hover {
+                background: transparent;
+                color: lightgray;
+                border: 1px solid lightgray;
+            }
+
+        }
     }
 
     &__outline {
@@ -23,15 +42,33 @@
         transition: .1s;
         cursor: pointer;
         background: transparent;
-        color: lightgray;
+        color: black;
         border-radius: .5rem;
         padding: .7rem .5rem;
-        border: 1px solid lightgray;
+        border: 1px solid black;
 
         &:hover {
-            background: lightgray;
-            color: black;
+            background: black;
+            color: white;
             border: 1px solid transparent;
         }
+        
+        &--dark {
+            border: none;
+            outline: none;
+            transition: .1s;
+            cursor: pointer;
+            background: transparent;
+            color: lightgray;
+            border-radius: .5rem;
+            padding: .7rem .5rem;
+            border: 1px solid lightgray;
+    
+            &:hover {
+                background: lightgray;
+                color: black;
+                border: 1px solid transparent;
+            }
     }
+}
 }

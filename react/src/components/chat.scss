@@ -19,6 +19,14 @@
         display: flex;
         flex-direction: row;
         position: relative;
+
+        &--dark {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            background: #14181E;
+            color: lightgray;
+        }
     }
 
     &__panel {
@@ -28,7 +36,7 @@
         background: #0c0c0c;
 
         & * {
-            background: #0c0c0c;
+            background: inherit;
         }
 
         &-ghost {
@@ -55,12 +63,30 @@
                 border: none;
                 outline: none;
                 border-radius: .5rem;
-                background: #2F2F2F;
+                background: rgb(243, 243, 243);
                 padding: .5rem;
                 font-size: .9rem;
 
+                &--dark {
+                    width: -webkit-fill-available;
+                    resize: none;
+                    border: none;
+                    outline: none;
+                    border-radius: .5rem;
+                    background: #2F2F2F;
+                    padding: .5rem;
+                    font-size: .9rem;
+                    color: lightgray;
+                }
+
                 &::placeholder {}
             }
+        }
+
+        &-switches {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
         }
 
     }
@@ -74,12 +100,11 @@
         &-list {
             display: flex;
             flex-direction: column;
-            background: #323232;
             border-radius: .5rem;
             overflow: hidden;
 
             & * {
-                background: #323232;
+                background: inherit;
             }
 
             &-item {
@@ -91,10 +116,10 @@
                 cursor: default;
 
                 &:hover {
-                    background: #2b2b2b;
+                    opacity: .8;
 
                     & * {
-                        background: #2b2b2b;
+                        background: inherit;
                     }
                 }
             }
@@ -117,6 +142,7 @@
         flex-direction: column;
         align-items: center;
         min-height: 100%;
+        width: 100%;
         max-width: 90vw;
         position: relative;
         margin: 0 auto 6rem auto;
@@ -125,89 +151,20 @@
     &__box {
         display: flex;
         flex-direction: column;
+        width: 100%;
 
-        &-list {}
+        &-list {
+            width: 100%;
+        }
 
         &-hi {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             text-align: center;
+            transition: .5s;
         }
     }
 
-    &__form {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background: #2F2F2F;
-        border-radius: 2rem;
-        height: fit-content;
-
-        &-container {
-            background: #14181E;
-            position: fixed;
-            bottom: 0;
-            padding-bottom: 2rem;
-            width: 800px;
-            max-width: 90vw;
-            border-top-left-radius: 2rem;
-            border-top-right-radius: 2rem;
-        }
-
-        &-input {
-            border: none;
-            outline: none;
-            background: transparent;
-            box-sizing: border-box;
-            resize: none;
-            font-size: 1rem;
-            margin: 0;
-            width: 100%;
-            max-height: 40vh;
-        }
-
-        &-attachment {
-            background: transparent;
-
-            &-svg {
-                cursor: pointer;
-                margin: 1rem;
-                height: 1.5rem;
-                background: transparent;
-                width: fit-content;
-                filter: invert(88%) sepia(0%) saturate(46%) hue-rotate(166deg) brightness(92%) contrast(106%);
-                transition: .1s;
-
-                &:hover {
-                    filter: invert(88%) sepia(0%) saturate(46%) hue-rotate(166deg) brightness(110%) contrast(106%);
-                }
-            }
-        }
-
-        &-send {
-            border-radius: 50%;
-            margin: 0 .7rem;
-            padding: .3rem;
-            background: lightgray;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            height: 1.8rem;
-            width: 1.8rem;
-
-            &:hover {
-                opacity: .8;
-            }
-
-            &-svg {
-                background: transparent;
-                height: 3rem;
-                width: 3rem;
-            }
-        }
-    }
 
     &__message {
         display: flex;
@@ -215,6 +172,7 @@
         justify-content: flex-end;
         margin: 2rem 0;
         gap: 2rem;
+        width: 100%;
 
         &-assistant {
             justify-content: flex-start;
@@ -228,7 +186,13 @@
             width: 2rem;
             height: 2rem;
             background: transparent;
-            filter: invert(88%) sepia(0%) saturate(46%) hue-rotate(166deg) brightness(92%) contrast(106%);
+
+            &--dark {
+                width: 2rem;
+                height: 2rem;
+                background: transparent;
+                filter: invert(88%) sepia(0%) saturate(46%) hue-rotate(166deg) brightness(92%) contrast(106%);
+            }
         }
 
         &-bubble {
@@ -245,16 +209,30 @@
         }
 
         &-content {
-            background: #2F2F2F;
             justify-self: flex-end;
             padding: .5rem 1.25rem;
             border-radius: 1.25rem;
             line-height: 1.75;
             font-size: 1rem;
+            background: #ededed;
 
             &>* {
                 background: inherit;
                 margin: 0;
+            }
+
+            &--dark {
+                justify-self: flex-end;
+                padding: .5rem 1.25rem;
+                border-radius: 1.25rem;
+                line-height: 1.75;
+                font-size: 1rem;
+                background: #2F2F2F;
+
+                &>* {
+                    background: inherit;
+                    margin: 0;
+                }
             }
 
             &-assistant {
@@ -286,12 +264,134 @@
             }
         }
     }
+
+    &__form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: #ededed;
+        border-radius: 2rem;
+        height: fit-content;
+
+        &--dark {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: #2F2F2F;
+            border-radius: 2rem;
+            height: fit-content;
+
+        }
+
+        &-container {
+            position: fixed;
+            bottom: 0;
+            padding-bottom: 2rem;
+            width: 800px;
+            max-width: 90vw;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            background: white;
+
+            &--dark {
+                background: #14181E;
+                position: fixed;
+                bottom: 0;
+                padding-bottom: 2rem;
+                width: 800px;
+                max-width: 90vw;
+                border-top-left-radius: 2rem;
+                border-top-right-radius: 2rem;
+            }
+        }
+
+        &-input {
+            border: none;
+            outline: none;
+            background: transparent;
+            box-sizing: border-box;
+            resize: none;
+            font-size: 1rem;
+            padding: 1rem 0;
+            width: 100%;
+            max-height: 40vh;
+
+            &--dark {
+                border: none;
+                outline: none;
+                background: transparent;
+                box-sizing: border-box;
+                resize: none;
+                font-size: 1rem;
+                padding: 1rem 0;
+                width: 100%;
+                max-height: 40vh;
+                color: lightgray;
+            }
+        }
+
+        &-attachment {
+            background: transparent;
+
+            &-svg {
+                cursor: pointer;
+                margin: .8rem;
+                height: 1.5rem;
+                background: transparent;
+                width: fit-content;
+                transition: .1s;
+
+                &:hover {
+                    opacity: .6;
+                }
+
+                &--dark {
+                    cursor: pointer;
+                    margin: .8rem;
+                    height: 1.5rem;
+                    background: transparent;
+                    width: fit-content;
+                    filter: invert(88%) sepia(0%) saturate(46%) hue-rotate(166deg) brightness(92%) contrast(106%);
+                    transition: .1s;
+
+                    &:hover {
+                        filter: invert(88%) sepia(0%) saturate(46%) hue-rotate(166deg) brightness(110%) contrast(106%);
+                    }
+                }
+            }
+        }
+
+        &-send {
+            border-radius: 50%;
+            margin: 0 .6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            height: 2rem;
+            width: 2rem;
+            background: lightgray;
+
+            &:hover {
+                opacity: .8;
+            }
+
+            &-svg {
+                background: transparent;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1150px) {
     .chat {
         &__container {
             flex-direction: column;
+
+            &--dark {
+                flex-direction: column;
+            }
         }
 
         &__file {
@@ -323,13 +423,21 @@
                 margin-bottom: -4px;
 
                 &-input {
-                    padding: .7rem .5rem;
+                    padding: .8rem .5rem;
+
+                    &--dark {
+                        padding: .8rem .5rem;
+                    }
                 }
             }
 
-            &-gohst {
+            &-ghost {
                 display: none;
             }
+        }
+
+        &__main {
+            margin-top: 15vh;
         }
 
 
@@ -346,6 +454,11 @@
 @media only screen and (max-width: 640px) {
     .chat {
         &__container {}
+
+        &__main {
+            margin-top: 35vh;
+        }
+
 
         &__message {
             gap: 1rem;

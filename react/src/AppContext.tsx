@@ -5,8 +5,8 @@ import { AppContextType } from './types';
 
 export const AppContext = createContext<AppContextType>({
     isMobile: false,
-    darkMode: false,
-    setDarkMode: () => { },
+    theme: '',
+    setTheme: () => { },
 })
 
 type Props = {
@@ -15,14 +15,14 @@ type Props = {
 
 export const AppProvider = ({ children }: Props) => {
     const [isMobile, setIsMobile] = useState<boolean>(false)
-    const [darkMode, setDarkMode] = useState(false)
+    const [theme, setTheme] = useState('')
     const [windowLoading, setWindowLoading] = useState(true)
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             setWindowLoading(false)
         }
-        setDarkMode(JSON.parse(localStorage.getItem('preferredMode') || 'false'))
+        setTheme(JSON.parse(localStorage.getItem('preferredMode') || 'false') ? '--dark' : '')
         setIsMobile(isMobileDevice())
 
         getPreferredScheme()
@@ -37,14 +37,15 @@ export const AppProvider = ({ children }: Props) => {
         const body = document.querySelector('body')
         if (body) {
             body.classList.remove('--dark')
-            if (darkMode) body.classList.add('--dark')
+            if (theme) body.classList.add('--dark')
 
             document.documentElement.setAttribute(
                 "data-color-scheme",
-                darkMode ? "dark" : "light"
+                theme ? "dark" : "light"
             )
         }
-    }, [darkMode])
+        localStorage.setItem('preferredMode', JSON.stringify(theme ? true : false))
+    }, [theme])
 
     const isMobileDevice = () => {
         if (typeof window === 'undefined') return false // Server-side check
@@ -64,18 +65,18 @@ export const AppProvider = ({ children }: Props) => {
 
     const getPreferredScheme = () => {
         const savedMode = localStorage.getItem('preferredMode')
-        const mode = JSON.parse(localStorage.getItem('preferredMode') || 'false')
-        setDarkMode(savedMode ? mode : window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches)
+        const mode = JSON.parse(localStorage.getItem('preferredMode') || 'false') ? '--dark' : ''
+        setTheme(savedMode ? mode : window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches ? '--dark' : '')
     }
 
     const contextValue = React.useMemo(() => ({
         isMobile,
-        darkMode,
-        setDarkMode,
+        theme,
+        setTheme,
     }), [
         isMobile,
-        darkMode,
-        setDarkMode,
+        theme,
+        setTheme,
     ])
 
 
