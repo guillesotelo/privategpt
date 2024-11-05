@@ -19,6 +19,7 @@
         display: flex;
         flex-direction: row;
         position: relative;
+        min-height: 100vh;
 
         &--dark {
             display: flex;
@@ -26,11 +27,13 @@
             position: relative;
             background: #14181E;
             color: lightgray;
+            min-height: 100vh;
         }
     }
 
     &__panel {
         position: fixed;
+        top: 0;
         width: 18rem;
         height: 100vh;
         background: #0c0c0c;
@@ -130,11 +133,10 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: auto;
+        margin: 0 auto;
         width: 800px;
         max-width: 100%;
         height: 100%;
-        min-height: 100vh;
     }
 
     &__output {
@@ -155,6 +157,7 @@
 
         &-list {
             width: 100%;
+            margin-bottom: 2rem;
         }
 
         &-hi {
@@ -260,9 +263,89 @@
             opacity: .8;
 
             &:hover {
-                background: #323232;
+                background: #e7e7e7;
+            }
+
+            &--dark {
+                cursor: pointer;
+                transition: .1s;
+                height: 1.1rem;
+                padding: .4rem .2rem;
+                border-radius: .5rem;
+                opacity: .8;
+
+                &:hover {
+                    background: #323232;
+                }
             }
         }
+    }
+
+    &__code-header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 2rem;
+        padding-top: .2rem;
+        z-index: 1;
+        justify-content: space-between;
+
+        &-language {
+            margin-left: 1rem;
+            color: gray;
+        }
+
+        &-copy {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 1rem;
+            gap: .1rem;
+            cursor: pointer;
+            transition: .1s;
+
+            &:hover {
+                opacity: .7;
+            }
+
+            &-text {
+                font-size: .8rem;
+                color: gray;
+            }
+
+            &-svg {
+                height: 1.2rem;
+                color: gray;
+            }
+
+            &--dark {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-right: 1rem;
+                gap: .1rem;
+                cursor: pointer;
+                transition: .1s;
+
+                &:hover {
+                    opacity: .7;
+                }
+
+                &-text {
+                    font-size: .8rem;
+                    color: gray;
+                }
+
+                &-svg {
+                    height: 1.2rem;
+                    color: gray;
+                }
+            }
+        }
+
     }
 
     &__form {
@@ -292,6 +375,7 @@
             border-top-left-radius: 2rem;
             border-top-right-radius: 2rem;
             background: white;
+            z-index: 1;
 
             &--dark {
                 background: #14181E;
@@ -302,6 +386,7 @@
                 max-width: 90vw;
                 border-top-left-radius: 2rem;
                 border-top-right-radius: 2rem;
+                z-index: 1;
             }
         }
 
@@ -408,6 +493,11 @@
             width: 100vw;
             z-index: 1;
             height: fit-content;
+            position: relative;
+
+            &-ghost {
+                display: none;
+            }
 
             &-form {
                 flex-direction: row;
@@ -430,14 +520,11 @@
                     }
                 }
             }
-
-            &-ghost {
-                display: none;
-            }
         }
 
         &__main {
-            margin-top: 15vh;
+            // margin-top: 15vh;
+            min-height: -webkit-fill-ava;
         }
 
 
@@ -455,8 +542,28 @@
     .chat {
         &__container {}
 
+
+        &__panel {
+            &-prompt {
+                width: 100%;
+            }
+
+            &-switches {
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+
+        &__file {
+            &-list {
+                &-ingested {
+                    width: 100%;
+                }
+            }
+        }
+
         &__main {
-            margin-top: 35vh;
+            // margin-top: 35vh;
         }
 
 

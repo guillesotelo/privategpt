@@ -26,7 +26,7 @@
             border-radius: .5rem;
             padding: .7rem .5rem;
             border: 1px solid transparent;
-    
+
             &:hover {
                 background: transparent;
                 color: lightgray;
@@ -52,7 +52,7 @@
             color: white;
             border: 1px solid transparent;
         }
-        
+
         &--dark {
             border: none;
             outline: none;
@@ -63,12 +63,32 @@
             border-radius: .5rem;
             padding: .7rem .5rem;
             border: 1px solid lightgray;
-    
+
             &:hover {
                 background: lightgray;
                 color: black;
                 border: 1px solid transparent;
             }
+        }
     }
 }
+
+@media only screen and (max-width: 640px) {
+    .button {
+        &__default {
+            width: 100%;
+
+            &--dark {
+                width: 100%;
+            }
+        }
+
+        &__outline {
+            width: 100%;
+
+            &--dark {
+                width: 100%;
+            }
+        }
+    }
 }

@@ -35,16 +35,16 @@ code {
     width: 100% !important;
     overflow-wrap: anywhere;
     font-style: italic;
-    background: #0c0c0c !important;
+    // background: #0c0c0c !important;
     margin: 1rem 0;
 }
 
 code * {
-    background: #0c0c0c !important;
+    background: inherit !important;
 }
 
 pre code {
-    background: #0c0c0c !important;
+    // background: #0c0c0c !important;
     padding: 1.5rem;
     display: block;
     white-space: pre-wrap;
@@ -59,8 +59,32 @@ code[class*="language-"],
 pre[class*="language-"] {
     text-shadow: none;
     overflow: unset !important;
+    color: black;
+    max-width: -webkit-fill-available;
+    background: #F4F4F4;
+    position: relative;
+    padding-top: 3rem;
+
+
+}
+
+.--dark code[class*="language-"],
+.--dark pre[class*="language-"] {
+    text-shadow: none;
+    overflow: unset !important;
     color: lightgray;
     max-width: -webkit-fill-available;
+    background: black;
+    position: relative;
+    padding-top: 3rem;
+
+    ::-moz-selection {
+        background: #09506795;
+    }
+
+    ::selection {
+        background: #09506795;
+    }
 }
 
 :not(pre)>code[class*="language-"],

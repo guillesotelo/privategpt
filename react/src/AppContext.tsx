@@ -27,7 +27,9 @@ export const AppProvider = ({ children }: Props) => {
 
         getPreferredScheme()
 
-        const checkWidth = () => setIsMobile(window.innerWidth <= 768)
+        const checkWidth = () => {
+            setIsMobile(window.innerWidth <= 768)
+        }
 
         window.addEventListener("resize", checkWidth)
         return () => window.removeEventListener("resize", checkWidth)

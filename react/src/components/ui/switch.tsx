@@ -23,7 +23,7 @@ export default function Switch({ label, on, off, value, setValue, style }: Props
             <div
                 className={`switch__row${theme}`}
                 style={{
-                    backgroundColor: value ? '#a4d8a4' : '',
+                    backgroundColor: value ? '#8cb688' : '',
                 }}>
                 <p className="switch__on">{on || 'On'}</p>
                 <p className={`switch__slider${value ? '--on' : '--off'}`} ></p>
